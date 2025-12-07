@@ -72,7 +72,7 @@
     font-size: 0.75rem; 
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    background: rgba(96, 165, 250, 0.1); 
+    background: var(--glow-secondary); 
     color: t.$color-accent-blue;
     font-weight: 500;
 }
