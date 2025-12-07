@@ -1,0 +1,103 @@
+
+.heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 9999px;
+    filter: blur(120px);
+}
+
+.glowPurple {
+    @extend .glow;
+    top: -10%;
+    left: -10%;
+    background-color: rgba(147, 51, 234, 0.3); // purple-600/30
+}
+
+.glowBlue {
+    @extend .glow;
+    bottom: -10%;
+    right: -10%;
+    background-color: rgba(37, 99, 235, 0.3); // blue-600/30
+}
+
+.heading {
+    font-size: 3.75rem; // text-6xl
+    font-weight: 700; // font-bold
+    margin-bottom: 1.5rem; // mb-6
+    letter-spacing: -0.025em; // tracking-tight
+
+    @media (min-width: 768px) {
+        font-size: 6rem; // md:text-8xl
+    }
+}
+
+.nameGradient {
+    background: linear-gradient(to right, #60a5fa, #9333ea); // from-blue-400 to-purple-600
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; // Fallback
+}
+
+.description {
+    font-size: 1.25rem; // text-xl
+    color: #9ca3af; // text-gray-400
+    margin-bottom: 3rem; // mb-12
+    max-width: 42rem; // max-w-2xl
+
+    @media (min-width: 768px) {
+        font-size: 1.5rem; // md:text-2xl
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 1.5rem; // gap-6
+}
+
+.buttonBase {
+    padding: 0.75rem 2rem; // px-8 py-3
+    border-radius: 9999px; // rounded-full
+    border-width: 1px;
+    border-style: solid;
+    transition: all 0.3s ease; // transition-all
+    text-decoration: none;
+    font-weight: 500;
+    color: white; // Assuming white text
+}
+
+.btnProject {
+    @extend .buttonBase;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2)); // from-blue-500/20 to-purple-500/20
+    border-color: rgba(59, 130, 246, 0.5); // border-blue-500/50
+
+    &:hover {
+        border-color: #60a5fa; // hover:border-blue-400
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); // hover:shadow-[...]
+    }
+}
+
+.btnContact {
+    @extend .buttonBase;
+    background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2)); // from-purple-500/20 to-pink-500/20
+    border-color: rgba(168, 85, 247, 0.5); // border-purple-500/50
+
+    &:hover {
+        border-color: #c084fc; // hover:border-purple-400
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.3); // hover:shadow-[...]
+    }
+}

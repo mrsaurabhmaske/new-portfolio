@@ -1,0 +1,36 @@
+
+.pageContainer {
+    min-height: 100vh;
+    padding: 8rem 2rem 2rem; // pt-32 p-8
+    font-family: var(--font-geist-sans);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; // gap-8
+    align-items: center;
+    max-width: 56rem; // max-w-4xl
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 640px) {
+        // sm
+        align-items: flex-start;
+    }
+}
+
+.title {
+    font-size: 2.25rem; // text-4xl
+    font-weight: 700;
+    background: linear-gradient(to right, #60a5fa, #9333ea); // from-blue-400 to-purple-600
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.description {
+    font-size: 1.125rem; // text-lg
+    color: #d1d5db; // text-gray-300
+}

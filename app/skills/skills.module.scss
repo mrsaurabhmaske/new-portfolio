@@ -1,0 +1,158 @@
+.pageContainer {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    font-family: var(--font-geist-sans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentWrapper {
+    width: 100%;
+    max-width: 80rem; // max-w-7xl
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 6rem;
+    }
+}
+
+// Left Column: Text & Toggle
+.textSection {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+
+    // Vertical line decoration (from image)
+    &::before {
+        content: "MY SKILLS";
+        position: absolute;
+        left: -3rem;
+        top: 0;
+        transform: rotate(-90deg) translateX(-100%);
+        transform-origin: top left;
+        font-size: 0.875rem;
+        letter-spacing: 0.1em;
+        color: #6b7280;
+        display: none;
+
+        @media (min-width: 1280px) {
+            display: block; // Only show on very large screens
+        }
+    }
+
+    // Line indicator next to description
+    &::after {
+        content: '';
+        position: absolute;
+        left: -1.5rem;
+        top: 5rem;
+        bottom: 0;
+        width: 2px;
+        background: #374151; // gray-700
+        display: none;
+
+        @media (min-width: 1024px) {
+            display: block;
+        }
+    }
+}
+
+.title {
+    font-size: 3rem; // text-5xl
+    font-weight: 800;
+    line-height: 1.1;
+    color: white;
+
+    @media (min-width: 768px) {
+        font-size: 3.75rem; // text-6xl
+    }
+}
+
+.description {
+    font-size: 1.125rem; // text-lg
+    color: #9ca3af; // text-gray-400
+    line-height: 1.6;
+}
+
+.toggleContainer {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 9999px; // rounded-full
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggleBtn {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #9ca3af;
+
+    &.active {
+        background: #3b82f6; // blue-500
+        color: white;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+
+    &:hover:not(.active) {
+        color: white;
+    }
+}
+
+// Right Column: Icon Grid
+.gridSection {
+    flex: 1.2;
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+        gap: 2rem;
+    }
+}
+
+.iconCard {
+    aspect-ratio: 1;
+    background: rgba(31, 41, 55, 0.4); // More transparent dark background
+    backdrop-filter: blur(8px); // Glass effect
+    border: 1px solid rgba(255, 255, 255, 0.05); // Subtle border
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.8); // "Icons a little more transparent" (the symbol)
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        transform: translateY(-5px);
+        background: rgba(55, 65, 81, 0.6); // Slightly lighter/more opaque on hover
+        color: #ffffff; // "Foreground whiter" on hover (or just active)
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Saira_Stencil_One } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sairaStencilOne.variable} antialiased bg-[#030014] overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sairaStencilOne.variable}`}
       >
         <Navbar />
         {children}

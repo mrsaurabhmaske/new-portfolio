@@ -1,9 +1,11 @@
 import Hero from "@/components/Hero";
+import styles from "./home.module.scss";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#030014] overflow-hidden">
+    <main className={styles.main}>
       <Hero />
     </main>
   );
 }
+
