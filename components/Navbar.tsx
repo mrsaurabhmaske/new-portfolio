@@ -12,12 +12,16 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const handleLogoClick = (e: React.MouseEvent) => {
+  const cycleTheme = () => {
+    if (theme === "green") setTheme("red");
+    else if (theme === "red") setTheme("purple");
+    else setTheme("green");
+  };
+
+  const handleLogoClick = () => {
+    // Only scroll to top if on home page, theme switching is now handled by the toggle
     if (pathname === "/") {
-      e.preventDefault();
-      if (theme === "green") setTheme("red");
-      else if (theme === "red") setTheme("purple");
-      else setTheme("green");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -52,6 +56,15 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+          <button
+            className={styles.themeToggle}
+            onClick={cycleTheme}
+            aria-label="Toggle Theme"
+            data-tooltip="Click to Toggle Theme"
+          >
+            <div className={styles.toggleIcon} />
+          </button>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -105,6 +118,16 @@ export default function Navbar() {
               <Link href="/resume.pdf" className={styles.mobileLink}>
                 Resume
               </Link>
+
+              <button
+                className={styles.themeToggle}
+                onClick={cycleTheme}
+                aria-label="Toggle Theme"
+                data-tooltip="Click to Toggle Theme"
+                style={{ marginTop: "1rem", transform: "scale(1.2)" }}
+              >
+                <div className={styles.toggleIcon} />
+              </button>
             </div>
           </motion.div>
         )}
