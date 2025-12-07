@@ -1,0 +1,106 @@
+@use "../app/theme.scss" as t;
+
+.card {
+    @include t.glass-panel;
+    border-radius: t.$radius-lg; // 12px
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto; 
+    margin-bottom: t.$spacing-lg; 
+    break-inside: avoid; 
+    
+    // Note: box-shadow is inside glass-panel mixin, but hovering needs updating
+    &:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08); // Keeping subtle specific hover
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: t.$color-bg-card;
+    display: block; 
+
+    img {
+        width: 100%;
+        height: auto; 
+        display: block; 
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover & img {
+        transform: scale(1.05);
+    }
+}
+
+.content {
+    padding: t.$spacing-md; // p-6 -> 1.5rem
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: t.$spacing-sm;
+}
+
+.title {
+    font-size: 1.25rem; 
+    font-weight: 700;
+    color: t.$color-text-primary;
+}
+
+.description {
+    font-size: 0.875rem; 
+    color: t.$color-text-tertiary;
+    line-height: 1.6;
+    flex: 1; 
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: t.$spacing-xs;
+    margin-top: auto;
+    padding-top: t.$spacing-sm;
+}
+
+.tag {
+    font-size: 0.75rem; 
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(96, 165, 250, 0.1); 
+    color: t.$color-accent-blue;
+    font-weight: 500;
+}
+
+.footer {
+    display: flex;
+    gap: t.$spacing-sm;
+    margin-top: t.$spacing-md; // 1.5rem
+    padding-top: t.$spacing-sm;
+    border-top: 1px solid t.$color-border-subtle;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: t.$spacing-xs;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: t.$color-text-secondary; // #d1d5db
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+        color: t.$color-accent-blue;
+    }
+}
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}

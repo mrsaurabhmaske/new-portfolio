@@ -1,0 +1,50 @@
+
+// Colors
+$color-bg-dark: #121212;
+$color-bg-card: #1f2937;
+$color-bg-input: rgba(0, 0, 0, 0.2);
+$color-bg-glass: rgba(255, 255, 255, 0.05);
+
+$color-text-primary: #f3f4f6;
+$color-text-secondary: #d1d5db;
+$color-text-tertiary: #9ca3af;
+$color-text-placeholder: #6b7280;
+
+$color-accent-blue: #60a5fa;
+$color-accent-blue-hover: #2563eb;
+$color-accent-purple: #9333ea;
+$color-border-subtle: rgba(255, 255, 255, 0.1);
+$color-border-focus: #2563eb;
+
+// Spacing
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 1.5rem;   // 24px
+$spacing-lg: 2rem;     // 32px
+$spacing-xl: 3rem;     // 48px
+$spacing-2xl: 4rem;    // 64px
+$spacing-page-top: 8rem; // 128px
+
+// Radius
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem; // 12px~16px depending on usage, standarizing to 1rem (16px) or 12px
+
+// Fonts
+$font-main: var(--font-geist-sans);
+
+// Mixins
+@mixin glass-panel {
+    background: $color-bg-glass;
+    backdrop-filter: blur(8px);
+    border: 1px solid $color-border-subtle;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@mixin page-container {
+    min-height: 100vh;
+    padding: $spacing-page-top $spacing-lg $spacing-xl;
+    font-family: $font-main;
+    display: flex;
+    justify-content: center;
+}
