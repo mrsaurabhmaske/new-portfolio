@@ -10,11 +10,11 @@ $color-text-secondary: #d1d5db;
 $color-text-tertiary: #9ca3af;
 $color-text-placeholder: #6b7280;
 
-$color-accent-blue: #60a5fa;
-$color-accent-blue-hover: #2563eb;
-$color-accent-purple: #9333ea;
+$color-accent-blue: var(--color-accent-secondary);
+$color-accent-blue-hover: var(--color-border-focus);
+$color-accent-purple: var(--color-accent-primary);
 $color-border-subtle: rgba(255, 255, 255, 0.1);
-$color-border-focus: #2563eb;
+$color-border-focus: var(--color-border-focus);
 
 // Spacing
 $spacing-xs: 0.5rem;   // 8px

@@ -107,9 +107,9 @@
     color: #9ca3af;
 
     &.active {
-        background: #3b82f6; // blue-500
+        background: var(--color-accent-primary);
         color: white;
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent-primary), transparent 50%);
     }
 
     &:hover:not(.active) {
@@ -137,22 +137,22 @@
     aspect-ratio: 1;
     background: rgba(31, 41, 55, 0.4); // More transparent dark background
     backdrop-filter: blur(8px); // Glass effect
-    border: 1px solid rgba(255, 255, 255, 0.05); // Subtle border
+    border: 1px solid color-mix(in srgb, var(--color-accent-primary), transparent 50%); // Theme accent border
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: rgba(255, 255, 255, 0.8); // "Icons a little more transparent" (the symbol)
+    color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
     position: relative;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
     &:hover {
         transform: translateY(-5px);
-        background: rgba(55, 65, 81, 0.6); // Slightly lighter/more opaque on hover
-        color: #ffffff; // "Foreground whiter" on hover (or just active)
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(55, 65, 81, 0.6);
+        color: white;
+        box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--color-accent-primary), transparent 60%);
+        border-color: var(--color-accent-primary);
     }
 }

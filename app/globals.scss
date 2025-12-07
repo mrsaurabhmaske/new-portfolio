@@ -1,10 +1,40 @@
 :root {
-    --background: #030014;
+    /* Base Colors (Shared) */
     --foreground: #ffffff;
-    --primary-gradient: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
-    --secondary-gradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Default Theme (Green) */
+    --background: #020604;              /* Very Dark Green */
+    --color-accent-primary: #10b981;    /* Emerald-500 */
+    --color-accent-hover: #059669;      /* Emerald-600 */
+    --color-accent-secondary: #34d399;  /* Emerald-400 */
+    --color-border-focus: #059669;      /* Emerald-600 */
+
+    --primary-gradient: linear-gradient(90deg, #10B981 0%, #3B82F6 100%);
+    --secondary-gradient: linear-gradient(90deg, #34D399 0%, #A7F3D0 100%);
+}
+
+[data-theme='red'] {
+    --background: #1a0505;              /* Very Dark Red */
+    --color-accent-primary: #ef4444;    /* Red-500 */
+    --color-accent-hover: #dc2626;      /* Red-600 */
+    --color-accent-secondary: #f97316;  /* Orange-500 */
+    --color-border-focus: #ea580c;      /* Orange-600 */
+
+    --primary-gradient: linear-gradient(90deg, #EF4444 0%, #F59E0B 100%);
+    --secondary-gradient: linear-gradient(90deg, #F59E0B 0%, #FCD34D 100%);
+}
+
+[data-theme='purple'] {
+    --background: #030014;              /* Original Dark Purple/Blue */
+    --color-accent-primary: #9333ea;    /* Purple-600 */
+    --color-accent-hover: #7e22ce;      /* Purple-700 */
+    --color-accent-secondary: #60a5fa;  /* Blue-400 */
+    --color-border-focus: #2563eb;      /* Blue-600 */
+    
+    --primary-gradient: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
+    --secondary-gradient: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
 
 * {
@@ -24,7 +54,7 @@ body {
 
 // Utility classes - converted to standard CSS/SCSS
 .text-gradient {
-    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    background: var(--primary-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
