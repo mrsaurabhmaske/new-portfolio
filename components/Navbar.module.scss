@@ -102,6 +102,17 @@
     }
 }
 
+.mobileActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 50;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
 .mobileButton {
     display: block; // default
     color: white;
@@ -113,10 +124,6 @@
 
     &:focus {
         outline: none;
-    }
-
-    @media (min-width: 768px) {
-        display: none; // md:hidden
     }
 }
 
@@ -146,28 +153,33 @@
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    // Tooltip styles
+    // Tooltip styles - Only visible on desktop
     position: relative;
     
     &::after {
         content: attr(data-tooltip);
-        position: absolute;
-        top: 130%; 
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-        font-size: 0.75rem;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(4px);
-        border: 1px solid var(--glass-border);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 60;
+        display: none; // Hidden by default (mobile)
+
+        @media (min-width: 768px) {
+            display: block; // Visible on desktop
+            position: absolute;
+            top: 130%; 
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 60;
+        }
     }
 
     &:hover::after {
