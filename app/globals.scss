@@ -64,6 +64,36 @@
     --btn-secondary-hover-shadow: rgba(245, 158, 11, 0.3);
 }
 
+[data-theme='yellow'] {
+    --background: #1a1a05;              /* Very Dark Yellow/Olive */
+    --color-accent-primary: #eab308;    /* Yellow-500 */
+    --color-accent-hover: #ca8a04;      /* Yellow-600 */
+    --color-accent-secondary: #facc15;  /* Yellow-400 */
+    --color-border-focus: #ca8a04;      /* Yellow-600 */
+
+    --primary-gradient: linear-gradient(90deg, #EAB308 0%, #F97316 100%); /* Yellow to Orange */
+    --secondary-gradient: linear-gradient(90deg, #FDE047 0%, #FDBA74 100%);
+
+    --glow-primary: rgba(234, 179, 8, 0.3);    /* Yellow-500/30 */
+    --glow-secondary: rgba(250, 204, 21, 0.3); /* Yellow-400/30 */
+
+    /* Component Variables (Yellow) */
+    --text-secondary: #9ca3af;
+    --nav-accent-color: #eab308; /* Yellow-500 */
+
+    /* Button: Primary */
+    --btn-primary-bg: linear-gradient(to right, rgba(234, 179, 8, 0.2), rgba(249, 115, 22, 0.2));
+    --btn-primary-border: rgba(234, 179, 8, 0.5);
+    --btn-primary-hover-border: #facc15;
+    --btn-primary-hover-shadow: rgba(234, 179, 8, 0.3);
+
+    /* Button: Secondary */
+    --btn-secondary-bg: linear-gradient(to right, rgba(249, 115, 22, 0.2), rgba(253, 186, 116, 0.2));
+    --btn-secondary-border: rgba(249, 115, 22, 0.5);
+    --btn-secondary-hover-border: #fbbf24;
+    --btn-secondary-hover-shadow: rgba(249, 115, 22, 0.3);
+}
+
 [data-theme='purple'] {
     --background: #030014;              /* Original Dark Purple/Blue */
     --color-accent-primary: #9333ea;    /* Purple-600 */

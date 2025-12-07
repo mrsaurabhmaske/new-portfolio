@@ -13,8 +13,9 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
 
   const cycleTheme = () => {
-    if (theme === "green") setTheme("red");
-    else if (theme === "red") setTheme("purple");
+    if (theme === "green") setTheme("purple");
+    else if (theme === "purple") setTheme("red");
+    else if (theme === "red") setTheme("yellow");
     else setTheme("green");
   };
 
@@ -67,26 +68,36 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          className={styles.mobileButton}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div className={styles.hamburgerIcon}>
-            <motion.span
-              animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className={styles.hamburgerLine}
-            />
-            <motion.span
-              animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-              className={styles.hamburgerLine}
-            />
-            <motion.span
-              animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className={styles.hamburgerLine}
-            />
-          </div>
-        </button>
+        {/* Mobile Actions (Toggle + Hamburger) */}
+        <div className={styles.mobileActions}>
+          <button
+            className={styles.themeToggle}
+            onClick={cycleTheme}
+            aria-label="Toggle Theme"
+          >
+            <div className={styles.toggleIcon} />
+          </button>
+
+          <button
+            className={styles.mobileButton}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div className={styles.hamburgerIcon}>
+              <motion.span
+                animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                className={styles.hamburgerLine}
+              />
+              <motion.span
+                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                className={styles.hamburgerLine}
+              />
+              <motion.span
+                animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                className={styles.hamburgerLine}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -118,16 +129,6 @@ export default function Navbar() {
               <Link href="/resume.pdf" className={styles.mobileLink}>
                 Resume
               </Link>
-
-              <button
-                className={styles.themeToggle}
-                onClick={cycleTheme}
-                aria-label="Toggle Theme"
-                data-tooltip="Click to Toggle Theme"
-                style={{ marginTop: "1rem", transform: "scale(1.2)" }}
-              >
-                <div className={styles.toggleIcon} />
-              </button>
             </div>
           </motion.div>
         )}
