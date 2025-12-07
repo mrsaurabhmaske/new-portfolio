@@ -1,36 +1,58 @@
+@use "../theme.scss" as t;
 
 .pageContainer {
-    min-height: 100vh;
-    padding: 8rem 2rem 2rem; // pt-32 p-8
-    font-family: var(--font-geist-sans);
+    @include t.page-container;
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    gap: 2rem; // gap-8
-    align-items: center;
-    max-width: 56rem; // max-w-4xl
-    margin-left: auto;
-    margin-right: auto;
+    gap: t.$spacing-xl;
+}
 
-    @media (min-width: 640px) {
-        // sm
-        align-items: flex-start;
+// Masonry Layout
+.grid {
+    column-count: 1;
+    column-gap: t.$spacing-lg;
+
+    @media (min-width: 768px) {
+        column-count: 2;
+    }
+
+    @media (min-width: 1024px) {
+        column-count: 3;
     }
 }
 
+.infoCard {
+    break-inside: avoid;
+    margin-bottom: t.$spacing-lg;
+    padding-bottom: t.$spacing-lg;
+}
+
 .title {
-    font-size: 2.25rem; // text-4xl
-    font-weight: 700;
-    background: linear-gradient(to right, #60a5fa, #9333ea); // from-blue-400 to-purple-600
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    font-size: 3rem; // Keep specific size or make variable if common
+    font-weight: 800;
+    color: t.$color-text-primary;
+    line-height: 1.1;
+    margin-bottom: t.$spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: t.$spacing-xs;
+}
+
+.smallTitle {
+    font-size: 0.875rem;
+    color: t.$color-text-tertiary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-left: 2px solid t.$color-text-tertiary;
+    padding-left: t.$spacing-sm;
+    margin-bottom: t.$spacing-xs;
 }
 
 .description {
-    font-size: 1.125rem; // text-lg
-    color: #d1d5db; // text-gray-300
+    font-size: 1rem;
+    color: t.$color-text-tertiary;
+    line-height: 1.6;
 }
