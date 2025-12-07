@@ -70,7 +70,7 @@
         gap: 1.5rem; // gap-6
         font-size: 0.875rem; // text-sm
         font-weight: 500; // font-medium
-        color: #d1d5db; // text-gray-300
+        color: var(--text-secondary);
     }
 }
 
@@ -88,16 +88,16 @@
 
     &:hover {
         opacity: 1;
-        color: #3b82f6; // Blue on hover
+        color: var(--nav-accent-color);
     }
 
     &.active {
-        color: #3b82f6; // "Colored when active"
+        color: var(--nav-accent-color);
         font-weight: 700; // "Bold when active"
         opacity: 1;
 
         &:visited {
-            color: #3b82f6;
+            color: var(--nav-accent-color);
         }
     }
 }
@@ -117,6 +117,62 @@
 
     @media (min-width: 768px) {
         display: none; // md:hidden
+    }
+}
+
+.themeToggle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: var(--glass-border);
+        transform: scale(1.1);
+    }
+
+    .toggleIcon {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: var(--nav-accent-color);
+        box-shadow: 0 0 10px var(--nav-accent-color);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    // Tooltip styles
+    position: relative;
+    
+    &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: 130%; 
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(4px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 60;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
@@ -157,7 +213,7 @@
     transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
-    background: linear-gradient(to right, rgba(37, 99, 235, 0.3), rgba(147, 51, 234, 0.3)); // from-blue-600/30 to-purple-600/30
+    background: var(--btn-primary-bg);
     border-radius: 9999px; // rounded-full
     filter: blur(80px);
     pointer-events: none;
@@ -178,7 +234,7 @@
     letter-spacing: 0.025em; // tracking-wide
     transition: color 0.15s ease;
     text-decoration: none;
-    color: #9ca3af; // text-gray-400
+    color: var(--text-secondary);
 
     &:hover {
         color: white;

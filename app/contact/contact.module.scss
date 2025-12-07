@@ -217,12 +217,12 @@
 
 .submitBtn {
     width: 100%;
-    background: #ffffff;
-    color: #000000;
+    background: var(--btn-primary-bg);
+    color: white;
     font-weight: 800;
     padding: t.$spacing-sm;
     border-radius: t.$radius-sm;
-    border: none;
+    border: 1px solid var(--btn-primary-border);
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -230,7 +230,8 @@
     margin-top: t.$spacing-sm;
 
     &:hover {
-        background: #e5e7eb; // gray-200
+        border-color: var(--btn-primary-hover-border);
+        box-shadow: 0 0 30px var(--btn-primary-hover-shadow);
         transform: translateY(-2px);
     }
 }
